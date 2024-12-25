@@ -1,0 +1,16 @@
+{
+  "name": "alperreha-slides",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "npx slidev build slide-hello-webcontainers.md --base /hello-webcontainers/ --out dist/hello-webcontainers && slidev build slide-hello-world.md --base /hello-world/ --out dist/hello-world",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.50.0",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest",
+    "vue": "^3.5.13"
+  }
+}
