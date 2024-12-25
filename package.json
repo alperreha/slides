@@ -3,7 +3,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "npx slidev build slide-hello-webcontainers.md --base /hello-webcontainers/ --out dist/hello-webcontainers && npx slidev build slide-hello-world.md --base /hello-world/ --out dist/hello-world && mv dist/hello-webcontainers/index.html dist/hello-webcontainers/index.md && cp index.html dist/",
+    "build": "npx slidev build slide-hello-webcontainers.md --base /hello-webcontainers/ --out dist/hello-webcontainers && npx slidev build slide-hello-world.md --base /hello-world/ --out dist/hello-world && cp index.html dist/",
     "dev": "slidev --open",
     "export": "slidev export"
   },
