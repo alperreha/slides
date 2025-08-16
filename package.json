@@ -3,14 +3,25 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "npx slidev build slide-hello-webcontainers.md --base /hello-webcontainers/ --out dist/hello-webcontainers && npx slidev build slide-hello-world.md --base /hello-world/ --out dist/hello-world && cp index.html dist/",
-    "dev": "slidev --open",
-    "export": "slidev export"
+    "ask-file": "mkdir -p .selected && ls slides | grep .md$ | nl -w2 -s'. ' > .selected/.slide-list && cat .selected/.slide-list && read -p 'Select number and enter: ' NUM && ENTRY=$(sed -n ${NUM}p .selected/.slide-list | awk '{print $2}') && SLIDE_NAME=$(basename $ENTRY .md) && echo slides/$ENTRY > .selected/.selected-slide && echo $SLIDE_NAME > .selected/.selected-slide-name",
+    "env-check": "echo '🔍 Checking environment...' && if [ -z \"$S3_BUCKET\" ]; then echo '❌ S3_BUCKET not set in .env'; exit 1; fi && echo '✅ S3_BUCKET: '$S3_BUCKET && if ! command -v s3cmd &> /dev/null; then echo '❌ s3cmd not installed'; exit 1; fi && echo '✅ s3cmd installed' && s3cmd ls s3://$S3_BUCKET > /dev/null 2>&1 && echo '✅ S3 bucket accessible' || (echo '❌ S3 bucket not accessible' && exit 1) && echo '🚀 Environment ready for deployment!'",
+    "dev": "pnpm run ask-file && ENTRY=$(cat .selected/.selected-slide) && pnpm slidev --open \"$ENTRY\"",
+    "build": "pnpm run ask-file && ENTRY=$(cat .selected/.selected-slide) && SLIDE_NAME=$(cat .selected/.selected-slide-name) && pnpm slidev build \"$ENTRY\" --out $PWD/dist/$SLIDE_NAME --base /$SLIDE_NAME/",
+    "export": "pnpm run ask-file && ENTRY=$(cat .selected/.selected-slide) && SLIDE_NAME=$(cat .selected/.selected-slide-name) && pnpm slidev export \"$ENTRY\" --out $PWD/dist/$SLIDE_NAME --base /$SLIDE_NAME/",
+    "deploy-slide": "pnpm env-check && SLIDE_NAME=$(cat .selected/.selected-slide-name) && s3cmd put --recursive dist/$SLIDE_NAME/ s3://$S3_BUCKET/entries/$SLIDE_NAME/",
+    "delete-slide": "pnpm env-check && read -p 'Enter slide name to delete from S3: ' SLIDE_NAME && s3cmd del --recursive s3://$S3_BUCKET/entries/$SLIDE_NAME/",
+    "render-home": "node spa-home.js",
+    "deploy-home": "pnpm env-check && s3cmd put --recursive dist/home/ s3://$S3_BUCKET/entries/home/",
+    "serve-dist": "pnpm dlx serve dist"
   },
   "dependencies": {
     "@slidev/cli": "^0.50.0",
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
     "vue": "^3.5.13"
+  },
+  "packageManager": "pnpm@10.12.4+sha512.5ea8b0deed94ed68691c9bad4c955492705c5eeb8a87ef86bc62c74a26b037b08ff9570f108b2e4dbd1dd1a9186fea925e527f141c648e85af45631074680184",
+  "devDependencies": {
+    "gray-matter": "^4.0.3"
   }
 }
