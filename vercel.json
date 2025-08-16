@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/hello-world/(.*)", "destination": "/hello-world/index.html" }
-    { "source": "/hello-webcontainers/(.*)", "destination": "/hello-webcontainers/index.html" }
-  ],
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist"
-}
