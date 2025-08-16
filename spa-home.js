@@ -33,7 +33,7 @@ function generateSlideHTML(slides) {
         </div>
         
         <!-- Content -->
-        <a href="/${slide.name}/" class="block flex-1 flex flex-col">
+        <a href="/${slide.name}/index.html" class="block flex-1 flex flex-col">
           <div class="mb-3">
             <h3 class="text-lg font-bold text-white group-hover:text-purple-300 transition-colors duration-300 font-mono leading-tight mb-2">
               ${slide.meta.title || slide.name}
