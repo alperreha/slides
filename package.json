@@ -8,10 +8,10 @@
     "dev": "pnpm run ask-file && ENTRY=$(cat .selected/.selected-slide) && pnpm slidev --open \"$ENTRY\"",
     "build": "pnpm run ask-file && ENTRY=$(cat .selected/.selected-slide) && SLIDE_NAME=$(cat .selected/.selected-slide-name) && pnpm slidev build \"$ENTRY\" --out $PWD/dist/$SLIDE_NAME --base /$SLIDE_NAME/",
     "export": "pnpm run ask-file && ENTRY=$(cat .selected/.selected-slide) && SLIDE_NAME=$(cat .selected/.selected-slide-name) && pnpm slidev export \"$ENTRY\" --out $PWD/dist/$SLIDE_NAME --base /$SLIDE_NAME/",
-    "deploy-slide": "pnpm env-check && SLIDE_NAME=$(cat .selected/.selected-slide-name) && s3cmd put --recursive dist/$SLIDE_NAME/ s3://$S3_BUCKET/entries/$SLIDE_NAME/",
-    "delete-slide": "pnpm env-check && read -p 'Enter slide name to delete from S3: ' SLIDE_NAME && s3cmd del --recursive s3://$S3_BUCKET/entries/$SLIDE_NAME/",
+    "deploy-slide": "pnpm env-check && pnpm run ask-file && SLIDE_NAME=$(cat .selected/.selected-slide-name) && s3cmd put --recursive dist/$SLIDE_NAME/ s3://$S3_BUCKET/$SLIDE_NAME/",
+    "delete-slide": "pnpm env-check && read -p 'Enter slide name to delete from S3: ' SLIDE_NAME && s3cmd del --recursive s3://$S3_BUCKET/$SLIDE_NAME/",
     "render-home": "node spa-home.js",
-    "deploy-home": "pnpm env-check && s3cmd put --recursive dist/home/ s3://$S3_BUCKET/entries/home/",
+    "deploy-home": "pnpm env-check && s3cmd put --recursive dist/index.html s3://$S3_BUCKET/",
     "serve-dist": "pnpm dlx serve dist"
   },
   "dependencies": {

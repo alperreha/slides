@@ -220,4 +220,4 @@ if (!fs.existsSync("dist")) {
 }
 
 fs.writeFileSync(path.join(process.cwd(), "dist", "index.html"), html);
-console.log("dist/index.html generated.");
+console.log("✅ dist/index.html generated.");

@@ -1,6 +1,6 @@
 # 🎯 slides.yazgan.xyz
 
-[![Visit Slides](https://img.shields.io/badge/Visit-slides.yazgan.xyz-blue?style=for-the-badge&logo=presentation)](https://slides.yazgan.xyz)
+[![Visit Slides](https://img.shields.io/badge/Visit-slides.yazgan.xyz-blue?style=for-the-badge&logo=presentation)](https://slides.yazgan.xyz/index.html)
 [![Built with Slidev](https://img.shields.io/badge/Built%20with-Slidev-green?style=for-the-badge&logo=vue.js)](https://sli.dev/)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
@@ -132,7 +132,7 @@ pnpm deploy-slide
 
 ## 🌟 Live Examples
 
-Visit [slides.yazgan.xyz](https://slides.yazgan.xyz) to see these presentations in action:
+Visit [slides.yazgan.xyz](https://slides.yazgan.xyz/index.html) to see these presentations in action:
 
 - **🌱 Getting Started with Modern Development** - Perfect for beginners
 - **🚀 Advanced Frontend Development Techniques** - For experienced developers
@@ -179,7 +179,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 <div align="center">
 
-**[🌐 Visit Live Site](https://slides.yazgan.xyz)** • **[📚 Slidev Docs](https://sli.dev/)** • **[🐙 GitHub](https://github.com/AlperRehaYAZGAN/slides)**
+**[🌐 Visit Live Site](https://slides.yazgan.xyz/index.html)** • **[📚 Slidev Docs](https://sli.dev/)** • **[🐙 GitHub](https://github.com/AlperRehaYAZGAN/slides)**
 
 Made with ❤️ and ☕ by [Alper Reha YAZGAN](https://github.com/AlperRehaYAZGAN)
 
